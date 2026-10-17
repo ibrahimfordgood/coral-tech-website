@@ -1,0 +1,32 @@
+/* Satoshi */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('//cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2'),
+       url('//cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff') format('woff'),
+       url('//cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* Erode */
+@font-face {
+  font-family: 'Erode';
+  src: url('//cdn.fontshare.com/wf/6F76RMHFNUMAWUR6FGCXVQGFZMKZHHLB/F5HOKHQFYHQHSI7YYDIPL5ZJMWQYM6CT/SMFAKKZYPUS6JMKLX3YWBR33XTVQTN5D.woff2') format('woff2'),
+       url('//cdn.fontshare.com/wf/6F76RMHFNUMAWUR6FGCXVQGFZMKZHHLB/F5HOKHQFYHQHSI7YYDIPL5ZJMWQYM6CT/SMFAKKZYPUS6JMKLX3YWBR33XTVQTN5D.woff') format('woff'),
+       url('//cdn.fontshare.com/wf/6F76RMHFNUMAWUR6FGCXVQGFZMKZHHLB/F5HOKHQFYHQHSI7YYDIPL5ZJMWQYM6CT/SMFAKKZYPUS6JMKLX3YWBR33XTVQTN5D.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Erode';
+  src: url('//cdn.fontshare.com/wf/Y23VEM6ZOYETVMDDX4WE6O26D6KD6FTH/5JK76ETARZBNJPAIPNJTGEYIT5MTFYRW/RDMTNE7APFYTJ64ZAAHBINZMSOKWCXKF.woff2') format('woff2'),
+       url('//cdn.fontshare.com/wf/Y23VEM6ZOYETVMDDX4WE6O26D6KD6FTH/5JK76ETARZBNJPAIPNJTGEYIT5MTFYRW/RDMTNE7APFYTJ64ZAAHBINZMSOKWCXKF.woff') format('woff'),
+       url('//cdn.fontshare.com/wf/Y23VEM6ZOYETVMDDX4WE6O26D6KD6FTH/5JK76ETARZBNJPAIPNJTGEYIT5MTFYRW/RDMTNE7APFYTJ64ZAAHBINZMSOKWCXKF.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+

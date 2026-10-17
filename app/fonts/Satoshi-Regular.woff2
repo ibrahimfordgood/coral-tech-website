@@ -1,0 +1,34 @@
+/* Satoshi */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('//cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2') format('woff2'),
+       url('//cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff') format('woff'),
+       url('//cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* Bebas Neue */
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('//cdn.fontshare.com/wf/AWXLDXTI2CYJ5SHK74YUPGPFS5S5BWLL/M6ZJD4UOFNT4DPUXGTK7T46JZ3W3QW64/2TXZKBJMJVP3NQX7K7MGJDQFMD4ZMJR7.woff2') format('woff2'),
+       url('//cdn.fontshare.com/wf/AWXLDXTI2CYJ5SHK74YUPGPFS5S5BWLL/M6ZJD4UOFNT4DPUXGTK7T46JZ3W3QW64/2TXZKBJMJVP3NQX7K7MGJDQFMD4ZMJR7.woff') format('woff'),
+       url('//cdn.fontshare.com/wf/AWXLDXTI2CYJ5SHK74YUPGPFS5S5BWLL/M6ZJD4UOFNT4DPUXGTK7T46JZ3W3QW64/2TXZKBJMJVP3NQX7K7MGJDQFMD4ZMJR7.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* Outfit */
+@font-face {
+  font-family: 'Outfit';
+  src: url('//cdn.fontshare.com/wf/RPEPC24XXAVK6EWUOKWQUPTOZQR35AS2/BVWMEQ5ZCLZP2VOXOHXQDCZADXNFBXUF/5REHZLR2B5PQAKMITIQJK6BDK34RDHS4.woff2') format('woff2'),
+       url('//cdn.fontshare.com/wf/RPEPC24XXAVK6EWUOKWQUPTOZQR35AS2/BVWMEQ5ZCLZP2VOXOHXQDCZADXNFBXUF/5REHZLR2B5PQAKMITIQJK6BDK34RDHS4.woff') format('woff'),
+       url('//cdn.fontshare.com/wf/RPEPC24XXAVK6EWUOKWQUPTOZQR35AS2/BVWMEQ5ZCLZP2VOXOHXQDCZADXNFBXUF/5REHZLR2B5PQAKMITIQJK6BDK34RDHS4.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+
