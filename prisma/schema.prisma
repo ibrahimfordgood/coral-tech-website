@@ -49,6 +49,8 @@ model Project {
   problem    String
   solution   String
   result     String?
+  highlights String[] @default([])
+  status     String?
   liveUrl    String?
   images     Json     @default("[]")
   featured   Boolean  @default(false)

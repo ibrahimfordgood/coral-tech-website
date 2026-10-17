@@ -21,6 +21,10 @@ export type Project = {
   problem: string
   solution: string
   result: string | null
+  /** Key features, shown as a list on the case study. */
+  highlights: string[]
+  /** Shown as a badge when the project is not yet live, e.g. "In review with the school". */
+  status: string | null
   liveUrl: string | null
   images: ProjectImage[]
   featured: boolean
@@ -57,20 +61,38 @@ export type Service = {
   faqs: { question: string; answer: string }[]
 }
 
-// TODO: replace cover image with real Scienceworld screenshots once the principal agrees to be shown.
+// Content follows the Scienceworld Website Review (October 2026). The site is built and awaiting the school's
+// approval: confirm the principal is happy to be shown before launching our site, then update status and liveUrl.
 export const projects: Project[] = [
   {
     slug: "scienceworld-senior-secondary-school",
     clientName: "Scienceworld Senior Secondary School",
     sector: "schools",
-    summary: "A school website parents can use on their phones: admissions, fees and news in one place.",
+    summary:
+      "An 8-page, mobile-first website for a champion STEM school in Freetown, built to turn parents' interest into admissions enquiries.",
     problem:
-      "Parents had no reliable way to find admission dates, fee amounts or school news online, so the office answered the same questions by phone every day.",
+      "Scienceworld was hard to find online. Its only presence was a general directory listing among unrelated businesses, using information the school did not control. Admissions enquiries came only by visit or phone during office hours, and the school's achievements, including first place in the 2026 Inter-Secondary School Chemistry Quiz and Practical Competition, were known mostly to those who were there.",
     solution:
-      "We built a fast, mobile-first site with an admissions page and enquiry form, clear fee and mobile money payment instructions, a news section, and a photo gallery the school can update itself.",
+      "We built an official website with eight pages: Home, About, Academics, STEM, Admissions, News, Gallery and Contact. The first screen tells parents that admissions for 2026–2027 are open and that Scienceworld is a champion STEM school. Parents can start an admissions enquiry at any hour, then continue on WhatsApp with their child's details already filled in.",
     result: null,
-    liveUrl: null,
-    images: [{ src: "/images/students-screen.jpg", alt: "Two students looking at a computer screen", device: "desktop" }],
+    highlights: [
+      "Admissions enquiry form that continues on WhatsApp with the child's details pre-filled",
+      "2026 Chemistry Championship results, front and centre on the home page",
+      "STEM page showing robotics, coding, laboratory science and the student-led STEM TV show",
+      "Academics page covering JSS and SSS subjects and WASSCE preparation",
+      "News with topic filters and a nine-album photo gallery",
+      "Call, WhatsApp and Apply Now fixed to the bottom of the screen on phones",
+      "Search-ready titles and share previews for WhatsApp and Facebook",
+    ],
+    status: "Built and in review with the school",
+    liveUrl: "https://science-world-stem-school.vercel.app",
+    images: [
+      { src: "/images/work/scienceworld-home-desktop.jpg", alt: "Scienceworld home page on desktop: Where Young Minds Build the Future, admissions open 2026–2027", device: "desktop" },
+      { src: "/images/work/scienceworld-home-phone.jpg", alt: "Scienceworld home page on a phone, with Call, WhatsApp and Apply Now buttons fixed at the bottom", device: "phone" },
+      { src: "/images/work/scienceworld-admissions-phone.jpg", alt: "Scienceworld admissions page on a phone: Join Scienceworld for 2026–2027", device: "phone" },
+      { src: "/images/work/scienceworld-admissions-desktop.jpg", alt: "Scienceworld admissions enquiry form with WhatsApp, phone and campus details", device: "desktop" },
+      { src: "/images/work/scienceworld-stem-desktop.jpg", alt: "Scienceworld STEM page: Where students build the future", device: "desktop" },
+    ],
     featured: true,
     order: 1,
     published: true,
@@ -159,6 +181,7 @@ export const services: Service[] = [
       "Mobile-first design that loads quickly on 3G",
       "Your school's own domain and email address",
       "WhatsApp button so parents can message the office",
+      "Call, WhatsApp and Apply buttons fixed to the bottom of the screen on phones",
       "Training so your staff can post news and photos",
     ],
     addOns: [

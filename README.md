@@ -45,7 +45,8 @@ On Vercel, add the same variables in Project Settings → Environment Variables,
 ## Before launch
 
 - [ ] Set package prices in NLe (`lib/seed-data.ts` or the `Package` table)
-- [ ] Get Scienceworld's permission and add real screenshots
+- [x] Add real Scienceworld screenshots (from the preview site)
+- [ ] Get the Scienceworld principal's permission to show the project, then update `status` and `liveUrl` in `lib/seed-data.ts`
 - [ ] Add team names, photos and the founders' story (`app/(site)/about/page.tsx`)
 - [ ] Set the registered company name in `lib/site.ts`
 - [ ] Register the domain and set `NEXT_PUBLIC_SITE_URL`
