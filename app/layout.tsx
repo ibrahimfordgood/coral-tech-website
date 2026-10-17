@@ -1,42 +1,53 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { Geist_Mono } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import localFont from "next/font/local"
 import { Analytics } from "@vercel/analytics/next"
+import { site } from "@/lib/site"
 import "./globals.css"
 
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const satoshi = localFont({
+  src: [
+    { path: "./fonts/Satoshi-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Satoshi-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/Satoshi-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-satoshi",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: "CORAL TECH — Freetown's Web Partner for Businesses & Schools",
-  description:
-    "Affordable professional websites for Freetown businesses and schools. We build sites that help private schools, clinics, law firms, and local businesses get found online in Sierra Leone.",
-  generator: "v0.app",
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.name}: websites for Sierra Leone's schools and businesses`,
+    template: `%s | ${site.name}`,
+  },
+  description: site.description,
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: "en_SL",
+  },
   icons: {
     icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
+      { url: "/icon-light-32x32.png", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark-32x32.png", media: "(prefers-color-scheme: dark)" },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
     apple: "/apple-icon.png",
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export const viewport: Viewport = {
+  themeColor: "#1b2230",
+}
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={satoshi.variable} suppressHydrationWarning>
+      <head>
+        {/* Opt in to reveal animations only when JS runs, so content is never hidden without it. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

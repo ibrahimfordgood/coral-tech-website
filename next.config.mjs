@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // A stray lockfile in the home folder confuses root detection; pin it here.
+  turbopack: { root: import.meta.dirname },
   images: {
-    unoptimized: true,
+    formats: ["image/avif", "image/webp"],
   },
+  serverExternalPackages: ["@node-rs/argon2"],
 }
 
 export default nextConfig

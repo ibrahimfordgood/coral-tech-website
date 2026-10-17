@@ -1,86 +1,74 @@
 import Link from "next/link"
+import { Logo } from "@/components/logo"
+import { services } from "@/lib/seed-data"
+import { nav, site } from "@/lib/site"
 
 export function Footer() {
   return (
-    <footer className="py-16 md:py-24 border-t border-border">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <Link href="/" className="inline-block mb-6">
-              <span className="text-xl font-medium tracking-tight">CORAL TECH</span>
-            </Link>
-            <p className="text-muted-foreground leading-relaxed max-w-sm">
-              Freetown's web partner for businesses and schools. We build affordable, professional websites that help local organizations get found online. Serving private schools, clinics, law firms, and businesses across Sierra Leone.
+    <footer className="bg-primary pt-16 pb-28 text-primary-foreground sm:pb-16">
+      <div className="container-page">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <Logo inverse />
+            <p className="mt-4 max-w-sm leading-relaxed text-primary-foreground/70">
+              Websites and software for Sierra Leone&apos;s schools and businesses. Built in Freetown.
             </p>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h4 className="text-sm font-medium mb-4">Company</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>
-                <Link href="#projects" className="hover:text-foreground transition-colors">
-                  Our Work
-                </Link>
-              </li>
-              <li>
-                <Link href="#about" className="hover:text-foreground transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="#services" className="hover:text-foreground transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="hover:text-foreground transition-colors">
-                  Contact
-                </Link>
-              </li>
+          <div className="md:col-span-2">
+            <h2 className="text-sm font-medium">Company</h2>
+            <ul className="mt-4 space-y-3 text-sm text-primary-foreground/70">
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="hover:text-primary-foreground">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-medium mb-4">Connect</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>
-                <a href="mailto:hello@coraltech.com" className="hover:text-foreground transition-colors">
-                  hello@coraltech.com
-                </a>
-              </li>
-              <li>
-                <a href="tel:+23275408759" className="hover:text-foreground transition-colors">
-                  +232 75 408759
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  LinkedIn
-                </a>
-              </li>
+          <div className="md:col-span-2">
+            <h2 className="text-sm font-medium">Services</h2>
+            <ul className="mt-4 space-y-3 text-sm text-primary-foreground/70">
+              {services.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services/${s.slug}`} className="hover:text-primary-foreground">
+                    {s.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
+          </div>
+
+          <div className="md:col-span-3">
+            <h2 className="text-sm font-medium">Contact</h2>
+            <address className="mt-4 space-y-3 text-sm not-italic text-primary-foreground/70">
+              <p>
+                <a href={site.phoneHref} className="hover:text-primary-foreground">
+                  {site.phone}
+                </a>
+              </p>
+              <p>
+                <a href={`mailto:${site.email}`} className="hover:text-primary-foreground">
+                  {site.email}
+                </a>
+              </p>
+              <p>
+                {site.address.street}, {site.address.city}, {site.address.country}
+              </p>
+              <p>{site.hours}</p>
+            </address>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© 2025 CORAL TECH. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-foreground transition-colors">
-              Privacy
-            </Link>
-            <Link href="#" className="hover:text-foreground transition-colors">
-              Terms
-            </Link>
-          </div>
+        <div className="mt-14 flex flex-col gap-3 border-t border-primary-foreground/15 pt-6 text-sm text-primary-foreground/60 sm:flex-row sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} {site.legalName}. All rights reserved.
+          </p>
+          <Link href="/privacy" className="hover:text-primary-foreground">
+            Privacy policy
+          </Link>
         </div>
       </div>
     </footer>

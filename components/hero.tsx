@@ -1,183 +1,103 @@
-"use client"
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight, Check, MapPin } from "lucide-react"
+import { PhoneMockup } from "@/components/phone-mockup"
+import { Button } from "@/components/ui/button"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
+import { WhatsAppLink } from "@/components/whatsapp-link"
+import skyline from "@/public/images/freetown-skyline.jpg"
 
-import { useEffect, useRef, useState } from "react"
-import { ArrowDown } from "lucide-react"
+const promises = ["Free 15-minute visit", "Prices in New Leones", "Live in 1 to 3 weeks"]
 
 export function Hero() {
-  const contentRef = useRef<HTMLDivElement>(null)
-  const heroRef = useRef<HTMLElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const [animationProgress, setAnimationProgress] = useState(0)
-  const [animationComplete, setAnimationComplete] = useState(false)
-  const accumulatedScrollRef = useRef(0)
-  const touchStartY = useRef<number>(0)
-  const lastTouchY = useRef<number>(0)
-
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      const atTopOfPage = window.scrollY === 0
-
-      if (atTopOfPage && !animationComplete) {
-        e.preventDefault()
-
-        accumulatedScrollRef.current = Math.max(0, Math.min(700, accumulatedScrollRef.current + e.deltaY))
-
-        const newProgress = Math.max(0, Math.min(1, accumulatedScrollRef.current / 700))
-        setAnimationProgress(newProgress)
-
-        if (newProgress >= 1) {
-          setAnimationComplete(true)
-        }
-
-        if (contentRef.current) {
-          const translateY = newProgress * 200
-          const rotationX = newProgress * 45
-          const scale = 1 - newProgress * 0.3
-          contentRef.current.style.transform = `translateY(${translateY}px) rotateX(${rotationX}deg) scale(${scale})`
-        }
-      } else if (atTopOfPage && animationComplete && e.deltaY < 0) {
-        e.preventDefault()
-
-        accumulatedScrollRef.current = Math.max(0, Math.min(700, accumulatedScrollRef.current + e.deltaY))
-
-        const newProgress = Math.max(0, Math.min(1, accumulatedScrollRef.current / 700))
-        setAnimationProgress(newProgress)
-
-        if (newProgress < 1) {
-          setAnimationComplete(false)
-        }
-
-        if (contentRef.current) {
-          const translateY = newProgress * 200
-          const rotationX = newProgress * 45
-          const scale = 1 - newProgress * 0.3
-          contentRef.current.style.transform = `translateY(${translateY}px) rotateX(${rotationX}deg) scale(${scale})`
-        }
-      }
-    }
-
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY.current = e.touches[0].clientY
-      lastTouchY.current = e.touches[0].clientY
-    }
-
-    const handleTouchMove = (e: TouchEvent) => {
-      const atTopOfPage = window.scrollY === 0
-      const currentTouchY = e.touches[0].clientY
-      const deltaY = lastTouchY.current - currentTouchY
-
-      if (atTopOfPage && !animationComplete) {
-        e.preventDefault()
-
-        accumulatedScrollRef.current = Math.max(0, Math.min(700, accumulatedScrollRef.current + deltaY * 3))
-
-        const newProgress = Math.max(0, Math.min(1, accumulatedScrollRef.current / 700))
-        setAnimationProgress(newProgress)
-
-        if (newProgress >= 1) {
-          setAnimationComplete(true)
-        }
-
-        if (contentRef.current) {
-          const translateY = newProgress * 200
-          const rotationX = newProgress * 45
-          const scale = 1 - newProgress * 0.3
-          contentRef.current.style.transform = `translateY(${translateY}px) rotateX(${rotationX}deg) scale(${scale})`
-        }
-      } else if (atTopOfPage && animationComplete && deltaY < 0) {
-        e.preventDefault()
-
-        accumulatedScrollRef.current = Math.max(0, Math.min(700, accumulatedScrollRef.current + deltaY * 3))
-
-        const newProgress = Math.max(0, Math.min(1, accumulatedScrollRef.current / 700))
-        setAnimationProgress(newProgress)
-
-        if (newProgress < 1) {
-          setAnimationComplete(false)
-        }
-
-        if (contentRef.current) {
-          const translateY = newProgress * 200
-          const rotationX = newProgress * 45
-          const scale = 1 - newProgress * 0.3
-          contentRef.current.style.transform = `translateY(${translateY}px) rotateX(${rotationX}deg) scale(${scale})`
-        }
-      }
-
-      lastTouchY.current = currentTouchY
-    }
-
-    window.addEventListener("wheel", handleWheel, { passive: false })
-    window.addEventListener("touchstart", handleTouchStart, { passive: false })
-    window.addEventListener("touchmove", handleTouchMove, { passive: false })
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel)
-      window.removeEventListener("touchstart", handleTouchStart)
-      window.removeEventListener("touchmove", handleTouchMove)
-    }
-  }, [animationComplete])
-
   return (
-    <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/images/hero-web-design.jpg"
-          alt="Web design workspace"
-          className="w-full h-full object-cover object-center"
-        />
-      </div>
-
+    <section className="relative overflow-hidden bg-primary text-primary-foreground">
+      {/* Soft coral glow behind the visual; pure CSS, no image cost. */}
       <div
-        ref={contentRef}
-        className="container mx-auto px-6 md:px-12 relative z-10"
-        style={{
-          willChange: "transform",
-          transform: "translateY(0px)",
-          perspective: "1000px",
-          transformStyle: "preserve-3d",
-        }}
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm tracking-[0.3em] uppercase text-center text-white/80 mb-6">{"Freetown's Web Partner"}</p>
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-40 right-[-10%] size-[640px] rounded-full bg-accent/20 blur-3xl"
+      />
 
-          <h1
-            ref={titleRef}
-            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-balance text-center text-white mb-8 tracking-tight leading-[1.05]"
-          >
-            {"We build websites"}
-            <br />
-            <span className="text-orange-200">{"for Freetown businesses"}</span>
-          </h1>
-
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto text-balance">
-            {"Affordable, professional websites for schools, clinics, law firms and businesses across Sierra Leone"}
+      <div className="container-page relative grid items-center gap-12 py-14 md:py-20 lg:grid-cols-12 lg:gap-10 lg:py-24">
+        <div className="lg:col-span-6">
+          <p className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/15 bg-primary-foreground/5 px-3 py-1.5 text-xs font-medium text-primary-foreground/80">
+            <span className="size-1.5 rounded-full bg-accent" />
+            Web studio in Freetown, Sierra Leone
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-foreground px-8 py-4 text-sm tracking-wide hover:bg-white/90 transition-colors duration-300"
-            >
-              {"Get Started"}
-            </a>
-            <a
-              href="#projects"
-              className="inline-flex items-center justify-center gap-2 border border-white/70 text-white px-8 py-4 text-sm tracking-wide hover:bg-white/10 transition-colors duration-300"
-            >
-              {"View Our Work"}
-            </a>
+          <h1 className="mt-6 text-[2.5rem] leading-[1.05] font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+            Websites and software for Sierra Leone&apos;s <span className="text-accent">schools and businesses</span>
+          </h1>
+
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/75">
+            Fast, mobile-first sites that parents, patients and customers can use on any phone, with WhatsApp and
+            mobile money built in.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button asChild variant="whatsapp" size="lg">
+              <WhatsAppLink>
+                <WhatsAppIcon className="size-5" />
+                Chat on WhatsApp
+              </WhatsAppLink>
+            </Button>
+            <Button asChild variant="outline-inverse" size="lg">
+              <Link href="/work">
+                See our work
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+          </div>
+
+          <ul className="mt-8 flex flex-col gap-2 text-sm text-primary-foreground/75 sm:flex-row sm:flex-wrap sm:gap-x-6">
+            {promises.map((p) => (
+              <li key={p} className="flex items-center gap-2">
+                <Check className="size-4 text-accent" />
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="relative lg:col-span-6">
+          <div className="relative ml-auto aspect-[4/3] w-full overflow-hidden rounded-3xl sm:aspect-[16/11] lg:aspect-[4/5] lg:w-[88%]">
+            <Image
+              src={skyline}
+              alt="Freetown skyline looking out over the Atlantic"
+              fill
+              priority
+              placeholder="blur"
+              sizes="(min-width: 1024px) 480px, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
+            <p className="absolute right-4 bottom-4 flex items-center gap-1.5 rounded-full bg-black/40 px-3 py-1.5 text-xs text-white backdrop-blur">
+              <MapPin className="size-3.5" />
+              Freetown
+            </p>
+          </div>
+
+          {/* Phone overlaps the photo: proof of the kind of site we build. */}
+          <div className="absolute -bottom-6 left-2 origin-bottom-left scale-[0.72] sm:left-6 sm:scale-90 lg:-bottom-8 lg:left-0 lg:scale-100">
+            <PhoneMockup />
+          </div>
+
+          {/* WhatsApp-style enquiry notification */}
+          <div
+            aria-hidden="true"
+            className="absolute top-4 right-3 hidden max-w-[240px] items-start gap-3 rounded-2xl bg-white p-3 text-[#1b2230] shadow-xl shadow-black/30 sm:flex lg:top-10 lg:-right-4"
+          >
+            <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-whatsapp text-white">
+              <WhatsAppIcon className="size-4" />
+            </span>
+            <span className="text-xs leading-snug">
+              <span className="block font-bold">New enquiry</span>
+              <span className="text-[#4b5563]">&ldquo;Hi Coral Tech, I saw your School websites page.&rdquo;</span>
+            </span>
           </div>
         </div>
       </div>
-
-      <div className="absolute inset-0 z-5 bg-black/40" />
-
-      {animationComplete && (
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce z-30">
-          <ArrowDown className="w-5 h-5 text-muted-foreground" />
-        </div>
-      )}
+      <div className="h-6 lg:h-8" />
     </section>
   )
 }

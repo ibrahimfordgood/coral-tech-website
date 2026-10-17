@@ -1,132 +1,91 @@
 "use client"
 
-import type React from "react"
-
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { Menu, X } from "lucide-react"
+import { Logo } from "@/components/logo"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
+import { WhatsAppLink } from "@/components/whatsapp-link"
+import { Button } from "@/components/ui/button"
+import { nav } from "@/lib/site"
 import { cn } from "@/lib/utils"
-import Image from "next/image"
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const [open, setOpen] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  useEffect(() => setOpen(false), [pathname])
 
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false)
-  }
-
-  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`)
 
   return (
-    <header
-      className={cn(
-        "fixed z-50 transition-all duration-500 my-0 py-0 rounded-none",
-        scrolled || mobileMenuOpen
-          ? "bg-primary backdrop-blur-md py-4 top-4 left-4 right-4 rounded-2xl"
-          : "bg-transparent py-4 top-0 left-0 right-0",
-      )}
-    >
-      <nav className="container mx-auto px-6 flex items-center justify-between md:px-[24]">
-        <Link href="/" className="flex items-center gap-2 group" onClick={scrollToTop}>
-          <span className="text-xl font-medium tracking-tight text-white">CORAL TECH</span>
-        </Link>
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/75">
+      <div className="container-page flex h-16 items-center justify-between gap-6">
+        <Logo />
 
-        <ul className="hidden md:flex items-center gap-10 text-sm tracking-wide">
-          {[
-            { label: "Home", href: "#hero" },
-            { label: "About", href: "#about" },
-            { label: "Our Work", href: "#projects" },
-            { label: "Services", href: "#services" },
-            { label: "FAQ", href: "#faq" },
-          ].map((item) => (
-            <li key={item.label}>
-              <Link
-                href={item.href}
-                className="hover:text-[rgb(251,146,60)] transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 hover:after:w-full after:bg-[rgb(251,146,60)] after:transition-all after:duration-300 text-white"
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <Link
-          href="#contact"
-          className={cn(
-            "hidden md:inline-flex items-center gap-2 text-sm px-5 py-2.5 transition-all duration-300",
-            scrolled
-              ? "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white"
-              : "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white",
-          )}
-        >
-          Get Started
-        </Link>
-
-        <button
-          className="md:hidden z-50 transition-colors duration-300 text-white"
-          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <line x1="4" y1="8" x2="20" y2="8" />
-              <line x1="4" y1="16" x2="20" y2="16" />
-            </svg>
-          )}
-        </button>
-      </nav>
-
-      <div
-        className={cn(
-          "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-          mobileMenuOpen ? "max-h-[600px] opacity-100 mt-8" : "max-h-0 opacity-0",
-        )}
-      >
-        <div className="container mx-auto px-6">
-          <ul className="flex flex-col gap-6 mb-8">
-            {[
-              { label: "Home", href: "#hero" },
-              { label: "About", href: "#about" },
-              { label: "Our Work", href: "#projects" },
-              { label: "Services", href: "#services" },
-              { label: "FAQ", href: "#faq" },
-            ].map((item) => (
-              <li key={item.label}>
+        <nav aria-label="Main" className="hidden md:block">
+          <ul className="flex items-center gap-8 text-sm">
+            {nav.map((item) => (
+              <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="hover:text-[rgb(251,146,60)] transition-colors duration-300 text-white text-4xl font-light block"
-                  onClick={closeMobileMenu}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  className={cn(
+                    "py-2 transition-colors hover:text-foreground",
+                    isActive(item.href) ? "font-medium text-foreground" : "text-muted-foreground",
+                  )}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
+        </nav>
 
-          <Link
-            href="#contact"
-            className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white transition-all duration-300 mb-4"
-            onClick={closeMobileMenu}
-          >
-            Get Started
-          </Link>
+        <div className="hidden md:block">
+          <Button asChild variant="whatsapp" className="h-10 rounded-full px-4">
+            <WhatsAppLink>
+              <WhatsAppIcon className="size-4" />
+              Chat on WhatsApp
+            </WhatsAppLink>
+          </Button>
         </div>
+
+        <button
+          type="button"
+          className="-mr-2 inline-flex size-11 items-center justify-center rounded-full md:hidden"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? <X className="size-6" /> : <Menu className="size-6" />}
+        </button>
+      </div>
+
+      <div id="mobile-menu" hidden={!open} className="border-t border-border md:hidden">
+        <nav aria-label="Mobile" className="container-page py-4">
+          <ul className="flex flex-col">
+            {nav.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  className="flex min-h-12 items-center text-xl font-medium"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Button asChild variant="whatsapp" size="lg" className="mt-4 w-full">
+            <WhatsAppLink>
+              <WhatsAppIcon className="size-5" />
+              Chat on WhatsApp
+            </WhatsAppLink>
+          </Button>
+        </nav>
       </div>
     </header>
   )

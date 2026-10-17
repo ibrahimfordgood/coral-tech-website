@@ -1,0 +1,103 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum EnquiryStatus {
+  New
+  Contacted
+  VisitBooked
+  Won
+  Lost
+}
+
+model Enquiry {
+  id                 String        @id @default(cuid())
+  name               String
+  organisation       String
+  sector             String
+  phone              String
+  email              String?
+  need               String
+  budgetRange        String?
+  message            String
+  preferredVisitTime String?
+  sourcePage         String?
+  utmSource          String?
+  status             EnquiryStatus @default(New)
+  notes              String?
+  ipHash             String?
+  userAgent          String?
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  @@index([status, createdAt])
+  @@index([ipHash, createdAt])
+}
+
+model Project {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  clientName String
+  sector     String
+  summary    String
+  problem    String
+  solution   String
+  result     String?
+  liveUrl    String?
+  images     Json     @default("[]")
+  featured   Boolean  @default(false)
+  order      Int      @default(0)
+  published  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Package {
+  id           String   @id
+  name         String
+  priceNLe     Int?
+  priceSuffix  String?
+  deliveryDays Int?
+  blurb        String
+  features     String[]
+  highlighted  Boolean  @default(false)
+  order        Int      @default(0)
+  active       Boolean  @default(true)
+  updatedAt    DateTime @updatedAt
+}
+
+model User {
+  id           String    @id @default(cuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         String    @default("admin")
+  createdAt    DateTime  @default(now())
+  sessions     Session[]
+}
+
+/// id is the SHA-256 of the session token; the raw token only lives in the cookie.
+model Session {
+  id        String   @id
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+/// Failed admin logins, used for per-IP rate limiting.
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  ipHash    String
+  createdAt DateTime @default(now())
+
+  @@index([ipHash, createdAt])
+}
