@@ -266,7 +266,8 @@ export const generalFaqs = [
 ]
 
 export const team = [
-  // TODO: replace with real names, roles and photos.
-  { name: "Ibrahim Sesay", role: "Co-founder and CTO", bio: "Builds the websites and makes sure they stay fast and secure.", photo: null as string | null },
-  { name: "Co-founder", role: "Co-founder", bio: "Leads client relationships, visits and projects.", photo: null as string | null },
+  // TODO: add photos (square, good light, plain background) to public/images/team/ and set `photo`.
+  { name: "Ibrahim S. Sesay", role: "Co-founder", bio: "Co-founded Coral Tech and works with schools and businesses from the first visit to launch day.", photo: null as string | null },
+  { name: "Alhaji Kajalie Bangura", role: "Chief Technology Officer", bio: "Leads the technical work and makes sure every site we build is fast, secure and reliable.", photo: null as string | null },
+  { name: "Ishmael Isaac Johnson", role: "Head of Media", bio: "Leads photography, video and content, so every site shows our clients at their best.", photo: null as string | null },
 ]

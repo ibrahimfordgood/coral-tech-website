@@ -11,12 +11,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 }
 
-const initials = (name: string) =>
-  name
-    .split(" ")
-    .map((w) => w[0])
-    .slice(0, 2)
-    .join("")
+/** First and last name initials, e.g. "Alhaji Kajalie Bangura" -> "AB". */
+const initials = (name: string) => {
+  const words = name.replace(/\b\w\.\s*/g, "").split(" ").filter(Boolean)
+  return (words[0][0] + (words.length > 1 ? words[words.length - 1][0] : "")).toUpperCase()
+}
 
 export default function AboutPage() {
   return (
