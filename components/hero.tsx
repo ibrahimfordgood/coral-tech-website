@@ -22,16 +22,16 @@ export function Hero() {
         <div className="lg:col-span-6">
           <p className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/15 bg-primary-foreground/5 px-3 py-1.5 text-xs font-medium text-primary-foreground/80">
             <span className="size-1.5 rounded-full bg-accent" />
-            Web studio in Freetown, Sierra Leone
+            Website design in Freetown, Sierra Leone
           </p>
 
           <h1 className="mt-6 text-[2.5rem] leading-[1.05] font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
-            Websites and software for Sierra Leone&apos;s <span className="text-accent">schools and businesses</span>
+            Professional websites for Sierra Leone&apos;s <span className="text-accent">schools and businesses</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/75">
-            Fast, mobile-first sites that parents, patients and customers can use on any phone, with WhatsApp and
-            mobile money built in.
+            We build fast, mobile-friendly websites that help parents find your school and customers find your
+            business, with WhatsApp built in so they can reach you in one tap.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -92,7 +92,7 @@ export function Hero() {
             </span>
             <span className="text-xs leading-snug">
               <span className="block font-bold">New enquiry</span>
-              <span className="text-[#4b5563]">&ldquo;Hi Coral Tech, I saw your School websites page.&rdquo;</span>
+              <span className="text-[#4b5563]">&ldquo;Hi Coral Tech, I saw your Business websites page.&rdquo;</span>
             </span>
           </div>
         </div>

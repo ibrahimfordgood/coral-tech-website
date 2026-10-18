@@ -18,7 +18,7 @@ const satoshi = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name}: websites for Sierra Leone's schools and businesses`,
+    default: `${site.name}: website design for schools and businesses in Sierra Leone`,
     template: `%s | ${site.name}`,
   },
   description: site.description,

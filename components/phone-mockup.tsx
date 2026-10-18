@@ -1,4 +1,4 @@
-import { CalendarDays, FileText, GraduationCap, Smartphone } from "lucide-react"
+import { CalendarDays, GraduationCap, Newspaper, Smartphone } from "lucide-react"
 
 /** A coded (not image) phone showing the kind of school site we build. Light on data, sharp on any screen. */
 export function PhoneMockup() {
@@ -26,7 +26,7 @@ export function PhoneMockup() {
         <div className="space-y-2 p-3">
           {[
             { icon: Smartphone, title: "Pay school fees", sub: "Orange Money · Africell Money" },
-            { icon: FileText, title: "Check results", sub: "Enter your pupil PIN" },
+            { icon: Newspaper, title: "Latest news", sub: "Sports day photos are up" },
             { icon: CalendarDays, title: "Term dates", sub: "Resumes 8 January" },
           ].map(({ icon: Icon, title, sub }) => (
             <div key={title} className="flex items-center gap-2 rounded-lg border border-[#e7e2dc] p-2">

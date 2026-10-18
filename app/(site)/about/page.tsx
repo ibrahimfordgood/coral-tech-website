@@ -7,7 +7,7 @@ import teamPhoto from "@/public/images/team-meeting.jpg"
 
 export const metadata: Metadata = {
   title: "About us",
-  description: "Coral Tech is a Freetown web and software studio helping Sierra Leonean schools and businesses go digital.",
+  description: "Coral Tech is a Freetown web design studio helping Sierra Leonean schools and businesses get online.",
   alternates: { canonical: "/about" },
 }
 
@@ -23,8 +23,8 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About us"
-        title="Helping Sierra Leonean institutions go digital"
-        intro="We are a small team in Freetown that builds websites and software for the schools and businesses around us."
+        title="Helping Sierra Leone's schools and businesses get online"
+        intro="We are a small team in Freetown that builds websites for the schools and businesses around us."
       />
 
       {/* TODO: replace with the founders' own 3 to 4 sentence story. */}

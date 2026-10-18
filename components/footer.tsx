@@ -11,7 +11,7 @@ export function Footer() {
           <div className="md:col-span-5">
             <Logo inverse />
             <p className="mt-4 max-w-sm leading-relaxed text-primary-foreground/70">
-              Websites and software for Sierra Leone&apos;s schools and businesses. Built in Freetown.
+              Websites for Sierra Leone&apos;s schools and businesses. Built in Freetown.
             </p>
           </div>
 

@@ -2,9 +2,9 @@
 export const site = {
   name: "Coral Tech",
   legalName: "Coral Tech", // TODO: registered company name
-  tagline: "Websites and software for Sierra Leone's schools and businesses",
+  tagline: "Websites for Sierra Leone's schools and businesses",
   description:
-    "Coral Tech builds fast, mobile-first websites and custom software for schools, clinics, law firms and businesses in Freetown, Sierra Leone.",
+    "Coral Tech designs and builds fast, mobile-friendly websites for schools and businesses in Freetown and across Sierra Leone.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   phone: "+232 75 408759",
   phoneHref: "tel:+23275408759",

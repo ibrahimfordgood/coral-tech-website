@@ -6,7 +6,7 @@ import { getServices } from "@/lib/content"
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "School websites, business websites, website redesigns and custom software such as school results systems, built in Freetown, Sierra Leone.",
+    "School websites, business websites and website redesigns, built in Freetown, Sierra Leone.",
   alternates: { canonical: "/services" },
 }
 
@@ -16,11 +16,11 @@ export default function ServicesPage() {
     <>
       <PageHeader
         eyebrow="Services"
-        title="Websites and software that work on every phone"
+        title="Websites that work on every phone"
         intro="Pick what fits you today. We start every project with a free 15-minute visit."
       />
       <section className="container-page py-16 md:py-20">
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}

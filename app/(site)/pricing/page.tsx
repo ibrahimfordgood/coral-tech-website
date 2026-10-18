@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { Check } from "lucide-react"
 import { Faq } from "@/components/faq"
 import { PageHeader, SectionHeading } from "@/components/section"
@@ -29,7 +28,7 @@ export default async function PricingPage() {
       <PageHeader
         eyebrow="Pricing"
         title="Clear prices in New Leones"
-        intro="Pick a package, or tell us what you need and we will recommend one. Custom software is quoted after a free visit."
+        intro="Pick a package, or tell us about your school or business and we will recommend one."
       />
 
       <section className="container-page py-16 md:py-20">
@@ -103,11 +102,7 @@ export default async function PricingPage() {
               ))}
             </ul>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              We usually take a deposit to start and the balance at launch. Custom software, such as a school results
-              system, is quoted after a free visit.{" "}
-              <Link href="/services/custom-software" className="font-medium text-foreground underline">
-                Learn more
-              </Link>
+              We usually take a deposit to start and the balance at launch.
             </p>
           </div>
         </div>

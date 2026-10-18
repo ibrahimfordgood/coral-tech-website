@@ -2,7 +2,7 @@ import { z } from "zod"
 
 export const sectorOptions = ["School", "Clinic or health", "Law firm", "Estate agency", "Shop or business", "NGO or company", "Government", "Other"] as const
 
-export const needOptions = ["New website", "Website redesign", "School results system", "Custom software", "Not sure yet"] as const
+export const needOptions = ["School website", "Business website", "Website redesign", "Hosting and care plan", "Not sure yet"] as const
 
 export const budgetOptions = ["Under NLe 5,000", "NLe 5,000 to 15,000", "NLe 15,000 to 40,000", "Over NLe 40,000", "Not sure yet"] as const
 

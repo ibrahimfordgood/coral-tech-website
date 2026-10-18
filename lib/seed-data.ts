@@ -174,7 +174,7 @@ export const services: Service[] = [
   {
     slug: "school-websites",
     name: "School websites",
-    short: "Admissions, fees, news and results that parents can check on their phones.",
+    short: "Admissions, fees, news and photos that parents can check on their phones.",
     forWho: "Private and public schools, from nursery to senior secondary, that want parents to find them and stop phoning the office for basic information.",
     includes: [
       "Home, about, admissions, fees, gallery and contact pages",
@@ -187,7 +187,7 @@ export const services: Service[] = [
     addOns: [
       { name: "Online admission form", description: "Parents apply from their phone and you receive each application by email." },
       { name: "Fees and mobile money", description: "Clear fee tables with Orange Money and Africell Money payment instructions." },
-      { name: "Results and report cards", description: "Teachers enter marks once; parents and pupils check results with a secure PIN." },
+      { name: "News and gallery", description: "Share events, achievements and photos so parents can see school life." },
     ],
     exampleProjectSlug: "scienceworld-senior-secondary-school",
     timeline: "2 to 3 weeks after we receive your content",
@@ -196,7 +196,7 @@ export const services: Service[] = [
     faqs: [
       { question: "Can parents pay fees through the website?", answer: "The site shows fee amounts and step-by-step Orange Money and Africell Money instructions. Parents pay with their phone as usual and send you the confirmation." },
       { question: "Who updates the news and photos?", answer: "Your staff can. We train them in one short session, and our care plan covers anything they are not comfortable doing." },
-      { question: "Can you build a results system too?", answer: "Yes. We build results and report card systems that teachers fill in once and parents check with a PIN. We quote it after a visit because every school grades differently." },
+      { question: "How long does a school website take?", answer: "Usually 2 to 3 weeks after we receive your logo, photos, fees and admissions details. We give you a clear date at the start." },
     ],
   },
   {
@@ -242,27 +242,7 @@ export const services: Service[] = [
       { question: "Will I lose my domain or email?", answer: "No. We move them carefully and check everything works before we switch over." },
     ],
   },
-  {
-    slug: "custom-software",
-    name: "Custom software",
-    short: "Results systems, booking tools and dashboards built around how you work.",
-    forWho: "Schools, clinics, NGOs and companies that run on paper or spreadsheets and want a simple system their staff will actually use.",
-    includes: [
-      "A visit to understand how your team works today",
-      "A clickable mockup before we write any code",
-      "Secure logins for staff, with roles and permissions",
-      "Works on phones, tablets and computers",
-      "Training, support and backups after launch",
-    ],
-    exampleProjectSlug: null,
-    timeline: "Quoted after a visit, usually 4 to 10 weeks",
-    startingPackage: null,
-    image: { src: "/images/team-coding.jpg", alt: "Two people reviewing code on a laptop" },
-    faqs: [
-      { question: "How much does custom software cost?", answer: "It depends on what the system needs to do, so we quote after a free visit and a mockup. You see exactly what you are paying for before we start." },
-      { question: "What can you build?", answer: "School results and report card systems, patient and appointment records, stock and sales tracking, and WhatsApp tools for sending updates to customers or parents." },
-    ],
-  },
+  // School management system: add it here as a service once it is ready.
 ]
 
 export const whyNow = [
@@ -279,7 +259,7 @@ export const steps = [
 ]
 
 export const generalFaqs = [
-  { question: "How much does a website cost?", answer: "See our pricing page for package prices in New Leones. Custom software is quoted after a free visit." },
+  { question: "How much does a website cost?", answer: "Every package has a clear price in New Leones on our pricing page. We recommend the right one after a free visit." },
   { question: "How do we pay?", answer: "Orange Money, Africell Money or bank transfer. We usually take a deposit to start and the balance at launch." },
   { question: "How long does it take?", answer: "Most sites are live in 1 to 3 weeks after we receive your content. We give you a clear date at the start." },
   { question: "Do you look after the site afterwards?", answer: "Yes. Our yearly care plan covers hosting, updates, backups and fixes." },
@@ -287,6 +267,6 @@ export const generalFaqs = [
 
 export const team = [
   // TODO: replace with real names, roles and photos.
-  { name: "Ibrahim Sesay", role: "Co-founder and CTO", bio: "Builds the websites and software, and makes sure they stay fast and secure.", photo: null as string | null },
+  { name: "Ibrahim Sesay", role: "Co-founder and CTO", bio: "Builds the websites and makes sure they stay fast and secure.", photo: null as string | null },
   { name: "Co-founder", role: "Co-founder", bio: "Leads client relationships, visits and projects.", photo: null as string | null },
 ]

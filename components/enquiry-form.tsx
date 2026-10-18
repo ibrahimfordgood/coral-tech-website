@@ -169,7 +169,7 @@ export function EnquiryForm() {
           name="message"
           rows={5}
           defaultValue={values.message}
-          placeholder="For example: we are a secondary school with 600 pupils and want parents to see fees and results online."
+          placeholder="For example: we are a secondary school with 600 pupils and want parents to see admissions, fees and news online."
           className="min-h-32 bg-card text-base"
           {...invalid("message")}
         />

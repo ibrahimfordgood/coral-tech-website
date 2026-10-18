@@ -50,10 +50,10 @@ export default async function HomePage() {
           <SectionHeading
             id="services-heading"
             eyebrow="What we do"
-            title="Four ways we help you get online"
-            intro="From a one-page site for your shop to a results system for your whole school."
+            title="Websites for schools and businesses"
+            intro="Whether you run a school, a clinic, a law firm or a shop, we build a site that brings you enquiries."
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
             {services.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}

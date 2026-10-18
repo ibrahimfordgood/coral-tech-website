@@ -10,7 +10,7 @@ export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: "Our work",
-  description: "Websites and software Coral Tech has built for schools and businesses in Sierra Leone.",
+  description: "Websites Coral Tech has built for schools and businesses in Sierra Leone.",
   alternates: { canonical: "/work" },
 }
 
